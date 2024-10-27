@@ -1,0 +1,67 @@
+<%- include('header') %>
+
+<div class="col-12">
+    <div class="rounded h-100 p-4">
+        <h6 class="mb-4">Responsive Table</h6>
+        <div class="table-responsive">
+            <div class="images text-center" style="margin-top: 30px;">
+                <img src="<%= locals.mechanic.mechanicimage %>" class="mb-5"  height="100" style="height: 150px; width: 150px; border-radius: 50%; border: 5px solid #19AF29;" alt="profile" title="profile">
+            </div>
+            <div class="table-responsive table--no-card m-b-30">
+                <table class="table table-borderless table-striped table-earning text-center">
+                    <tr>
+                        <td>
+                            Name </td>
+                        <td>
+                            <%= locals.mechanic.mname %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td
+                            >
+                            Email </td>
+                        <td>
+                            <%= locals.mechanic.email %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Mobile number </td>
+                        <td>
+                            <%= locals.mechanic.mno %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td
+                            >
+                            Landmark </td>
+                        <td>
+                            <%= locals.mechanic.landmark %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td
+                            >
+                            Service charge </td>
+                        <td>
+                            <%= locals.mechanic.sprice %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td
+                            >
+                            Address </td>
+                        <td>
+                            <%= locals.admin.address %>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <center>
+                <a href="/mechanic/mechanicupdate/<%= locals.mechanic.id %>" class="btn btn-primary" style="background-color: #19AF29; color: white;">Edit</a>
+            </center>
+        </div>
+    </div>
+</div>
+
+<%- include('footer') %>

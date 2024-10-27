@@ -1,0 +1,74 @@
+<%- include('header') %>
+
+<div class="col-12">
+    <div class="rounded h-100 p-4">
+        <div class="table-responsive">
+            <div class="images text-center" style="margin-top: 70px;">
+                <img src="<%= locals.fuel.fuelimage %>" class="mb-5" style="height: 150px; width: 150px; border-radius: 50%; border: 5px solid #19AF29;" alt="profile" title="profile">
+            </div>
+            <div class="table-responsive table--no-card m-b-30">
+                <table class="table table-borderless table-striped table-earning text-center">
+                    <tr>
+                        <td>
+                            Name </td>
+                        <td>
+                            <%= locals.fuel.fname %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td
+                            >
+                            Email </td>
+                        <td>
+                            <%= locals.fuel.email %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Mobile number </td>
+                        <td>
+                            <%= locals.fuel.mno %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td
+                            >
+                            Landmark </td>
+                        <td>
+                            <%= locals.fuel.landmark %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td
+                            >
+                            Address </td>
+                        <td>
+                            <%= locals.admin.address %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td
+                            >
+                            Petrol price </td>
+                        <td>
+                            <%= locals.fuel.pprice %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td
+                            >
+                            Diesel price </td>
+                        <td>
+                            <%= locals.fuel.dprice %>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <center>
+                <a href="/fuel/fuelupdate/<%= locals.fuel.id %>" class="btn" style="background-color: #19AF29; color: white;">Edit</a>
+            </center>
+        </div>
+    </div>
+</div>
+
+<%- include('footer') %>

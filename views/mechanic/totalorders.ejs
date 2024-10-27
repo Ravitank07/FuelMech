@@ -1,0 +1,62 @@
+<%- include('header') %>
+    <!-- END HEADER DESKTOP-->
+
+    <!-- MAIN CONTENT-->
+    <div class="main-content">
+        <div class="m-3 ml-5">
+            <form class="form-header">
+                <input class="au-input au-input--xl" type="text" name="search" placeholder="Search for name, mobile number, emails, landmark &amp; address..." />
+                <button class="au-btn--submit" style="background-color: #19AF29;">
+                    <i class="zmdi zmdi-search"></i>
+                </button>
+            </form>
+        </div>
+        <div class="section__content section__content--p30">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="table-responsive table--no-card m-b-30">
+                            <table class="table table-borderless table-striped table-earning">
+                                <thead>
+                                    <tr>
+                                        <th>Number</th>
+                                        <th>Customer name</th>
+                                        <th>Email</th>
+                                        <th>Landmark area</th>
+                                        <th>Vehical type</th>
+                                        <th>Vehical number</th>
+                                        <th>Mobile Number</th>
+                                        <th>Problem</th>
+                                        <th>price</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% var j=0 %>
+                                    <% orders.map((v,i) => { %>
+                                        <tr>
+                                            <td><%= ++j %></td>
+                                            <td><%= v.uname %></td>
+                                            <td><%= v.email %></td>
+                                            <td><%= v.mno %></td>
+                                            <td><%= v.landmark %></td>
+                                            <td><%= v.vtype %></td>
+                                            <td><%= v.vno %></td>
+                                            <td><%= v.problem %></td>
+                                            <td><%= v.sprice %></td>
+                                        </tr>    
+                                    <% }) %>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div style="text-align: center;">
+                            <% if(currentpage>0) { %>
+                                <a href="?page=<%= parseInt(currentpage)-1 %>&search=<%= search %>" name="page" class="btn btn-success">prev</a>    
+                            <%} %>
+                            <a href="?page=<%= currentpage %>&search=<%= search %>" name="page" class="btn btn-success"><%= parseInt(currentpage)+1 %></a>
+                            <% var next = parseInt(currentpage)+1 
+                            if(next<page) { %>
+                                <a href="?page=<%= next %>&search=<%= search %>" name="page" class="btn btn-success">next</a>    
+                            <% } %>
+                        </div>
+                    </div>
+                    <%- include('footer') %>

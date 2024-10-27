@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact-us</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+          <!-- Vendor CSS Files -->
+  <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="/vendor/aos/aos.css" rel="stylesheet">
+  <link href="/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="/vendor/fontawesome-free-6.5.1-web/css/all.min.css" rel="stylesheet">
+
+
+  <script src="/js/main.js"></script>
+  <link rel="stylesheet" href="/css/main.css">
+
+    <link rel="stylesheet" href="/contact.css">
+    <link rel="stylesheet" href="/style.scss">
+
+    <!-- noty cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"
+        integrity="sha512-lOrm9FgT1LKOJRUXF3tp6QaMorJftUjowOWiDcG5GFZ/q7ukof19V0HKx/GWzXCdt9zYju3/KhBNdCLzK8b90Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css"
+        integrity="sha512-0p3K0H3S6Q4bEWZ/WmC94Tgit2ular2/n0ESdfEX8l172YyQj8re1Wu9s/HT9T/T2osUw5Gx/6pAZNk3UKbESw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+
+    <header id="header" class="header fixed-top d-flex align-items-center">
+        <div class="container d-flex align-items-center justify-content-between">
+    
+          <a href="/user/home" class="logo d-flex align-items-center me-auto me-lg-0">
+            <!-- Uncomment the line below if you also wish to use an image logo -->
+            <!-- <img src="assets/img/logo.png" alt=""> -->
+            <img src="/img/fuemech.png" alt="logo" title="logo">
+          </a>
+    
+          <nav id="navbar" class="navbar">
+            <ul>
+                <li><a href="/user/home">Home</a></li>
+                <li><a href="/user/fuel">Fuel</a></li>
+                <li><a href="/user/mechanic">Mechanic</a></li>
+                <li><a href="/user/contact-us">Contact-us</a></li>
+                <li><a href="/user/myorders">Profile</a></li>
+            </ul>
+          </nav><!-- .navbar -->
+    
+          <div>
+            <% if(locals.user) { %>
+              <a class="btn-book-a-table" href="/user/logout" style="background-color: #19AF29; padding: 10px 30px; font-size: 17px;">Logout</a>
+            <% } else { %>
+              <a class="btn-book-a-table" href="/user" style="background-color: #19AF29; padding: 10px 30px; font-size: 17px;">Login</a> 
+            <% } %>
+        
+            <% if(locals.user) { %>
+              <a class="btn text-white" href="/user/changepassword" style="background-color: #19AF29; padding: 10px 30px; font-size: 17px; border-radius: 50px;">Change password</a> 
+            <% } %>
+          </div>
+          
+          <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+          <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+    
+        </div>
+      </header><!-- End Header -->
+
+
+    <section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section">Contact Form</h2>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-lg-10">
+				<div class="wrapper-img">
+						<div class="row">
+							<div class="col-md-9 col-lg-7">
+								<div class="contact-wrap w-100 p-md-5 p-4">
+									<div id="form-message-warning" class="mb-4"></div>
+						
+									<form method="POST" id="contactForm" name="contactForm" class="contactForm">
+										<div class="row form-data">
+											<div class="col-md-6">
+												<div class="form-group">
+													<label class="label" htmlFor="name">Full Name</label>
+													<input type="text" class="form-control" name="name" id="name"
+														placeholder="Name"/>
+												</div>
+											</div>
+											<div class="col-md-6">
+												<div class="form-group">
+													<label class="label" htmlFor="email">Email Address</label>
+													<input type="email" class="form-control" name="email" id="email"
+														placeholder="Email"/>
+												</div>
+											</div>
+											<div class="col-md-12">
+												<div class="form-group">
+													<label class="label" htmlFor="subject">Subject</label>
+													<input type="text" class="form-control" name="subject" id="subject"
+														placeholder="Subject"/>
+												</div>
+											</div>
+											<div class="col-md-12">
+												<div class="form-group">
+													<label class="label" htmlFor="#">Message</label>
+													<textarea name="message" class="form-control" id="message" cols="30"
+														rows="4" placeholder="Message"></textarea>
+												</div>
+											</div>
+											<div class="col-md-12">
+												<div class="form-group mt-3">
+													<input type="submit" value="Send Message" class="btn" style="background-color: #19AF29; color: white;"/>
+													<!-- <div class="submitting"></div> -->
+												</div>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+           
+
+      <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+
+    <div class="container">
+      <div class="row gy-3">
+
+        <div class="col-lg-3 col-md-6">
+          <a href="#">
+            <img src="/img/fuemech.png" alt="fuemech" width="220px" height="60px">
+          </a>
+          <div class="mt-3">
+            <h6><a href="#" style="color: #BCBCBE;">fuemech@gmail.com</a></h6>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 d-flex">
+          <i class="bi bi-geo-alt icon"></i>
+          <div>
+            <h4>Address</h4>
+            <p>
+              A108 crystal park <br>
+              sector-13,gurugram,hariyana 535022 - IND<br>
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 footer-links d-flex">
+          <i class="fa-solid fa-briefcase icon"></i>
+          <div>
+              <h4>Services</h4>
+              <h6>Fuel delivery</h6>
+              <h6>Mechanic provide</h6>
+              <h6>24/7 available</h6>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 footer-links">
+          <h4>Follow Us</h4>
+          <div class="social-links d-flex">
+            <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>FueMech</span></strong>. All Rights Reserved
+      </div>
+    </div>
+
+  </footer><!-- End Footer -->
+  <!-- End Footer -->
+
+  <script>
+    <% if(locals.flash.success.length > 0 && locals.flash.success){ %> 
+  
+    new Noty({
+      type: 'success',
+      layout: 'topRight',
+      text: '<%= locals.flash.success %>',
+      timeout: 2000,
+      theme: 'relax'
+    }).show();
+
+    <% } %>
+
+    <% if(locals.flash.error.length > 0 && locals.flash.error){ %> 
+
+    new Noty({
+      type: 'error',
+      layout: 'topRight',
+      text: '<%= locals.flash.error %>',
+      timeout: 2000,
+      theme: 'relax'
+    }).show();
+
+    <% } %>
+</script>
+
+</body>
+</html>

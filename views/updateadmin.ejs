@@ -1,0 +1,62 @@
+<%- include('header') %>
+    <!-- HEADER DESKTOP-->
+
+    
+
+    <!-- MAIN CONTENT-->
+    <div class="main-content">
+        <div class="section__content section__content--p30">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="mt-5 col-sm-12 col-xl-12">
+                        <div class="bg-white rounded h-100 p-4">
+                            <h6 class="mb-4">Update data</h6>
+                            <% var name = adata.name.split(" ") %>
+                            <form method="post" action="/admin/edit/<%= adata.id %>" enctype="multipart/form-data">
+                                <div class="row mb-3">
+                                    <label for="fname" class="col-sm-2 col-form-label">First name</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="fname" name="fname" value="<%= name[0] %>">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="lname" class="col-sm-2 col-form-label">Last name</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="lname" name="lname" value="<%= name[1] %>">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="email" class="col-sm-2 col-form-label">Email</label>
+                                    <div class="col-sm-10">
+                                        <input type="email" class="form-control" id="email" name="email" value="<%= adata.email %>">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="mno" class="col-sm-2 col-form-label">Mobile number</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="mno" name="mno" value="<%= adata.mno %>">
+                                    </div>
+                                </div>
+                                <div>
+                                    <label for="pass" class="col-sm-2 col-form-label">Gender</label>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="gender" id="male" <% if(adata.gender == "male") { %> <%= 'checked' %> <% } %> value="male" name="gender">
+                                        <label class="form-check-label" for="male">Male</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="gender" id="female" <% if(adata.gender == "female") { %> <%= 'checked' %> <% } %>
+                                            value="female" name="gender">
+                                        <label class="form-check-label" for="female">Female</label>
+                                    </div>
+                                </div>
+                                    <div class="mt-3 mb-3">
+                                        <label for="formFile" class="form-label">Select image</label>
+                                        <input class="form-control" type="file" id="formFile" name="adminimage">
+                                    </div>
+                                    <img src="<%= adata.adminimage %>" alt="image" title="image" style="height: 100px; width: 100px;"><br/>
+                                    <button type="submit" class="btn mt-5" style="background-color: #19AF29; color: white;">Update</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <%- include('footer') %>

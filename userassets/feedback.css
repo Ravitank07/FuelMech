@@ -1,0 +1,43 @@
+.form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.form-group {
+    margin-bottom: 15px;
+}
+.form-control {
+    padding: 10px;
+    border-radius: 0;
+}
+.form-control:focus {
+    box-shadow: none;
+    border-color: #007bff;
+}
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.stars {
+    display: inline-block;
+    font-size: 30px;
+  }
+  .star {
+    cursor: pointer;
+  }
+  .star:hover,
+  .star.active {
+    color: gold;
+  }
+
+
+  .feedbackForm{
+   margin-top: 8rem;
+   margin-bottom: 10rem;
+  }

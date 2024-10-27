@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="/vendor/fontawesome-free-6.5.1-web/css/all.min.css" rel="stylesheet">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container{
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        body{
+            background-color: white;
+            padding: 50px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <center>
+            <img src="/img/fuemech.png" alt="LOGO"><br><br>
+            <img src="<%= mdata[0].mechid.mechanicimage %>" style="width: 150px; height: 150px; border-radius: 50%;" alt="Company image">
+        </center>
+    </div>
+    <div class="container">
+        <center>
+            <table align="center" >
+                <tr>
+                    <td style="padding: 10px 100px 10px 0;"><h1>Company name :- </h1></td>
+                    <td style="padding: 10px;"><h2><%= mdata[0].mname %></h2></td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px 100px 10px 0;"><h1>Customer name :- </h1></td>
+                    <td style="padding: 10px;"><h2><%= mdata[0].uname %></h2></td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px 100px 10px 0;"><h1>Vehical type :- </h1></td>
+                    <td style="padding: 10px;"><h2><%= mdata[0].vtype %></h2></td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px 100px 10px 0;"><h1>Vehical number :- </h1></td>
+                    <td style="padding: 10px;"><h2><%= mdata[0].vno %></h2></td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px 100px 10px 0;"><h1>Service :- </h1></td>
+                    <td style="padding: 10px;"><h2><%= mdata[0].services %></h2></td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px 100px 10px 0;"><h1>Price :- </h1></td>
+                    <td style="padding: 10px;"><h2>₹ <%= mdata[0].price %>.00/-</h2></td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px 100px 10px 0;"><h1>Date :- </h1></td>
+                    <td style="padding: 10px;"><h2><%= mdata[0].create_date %></h2></td>
+                </tr>
+            </table>
+            
+        </center>
+    </div>
+</body>
+</html>

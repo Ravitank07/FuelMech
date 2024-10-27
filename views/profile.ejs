@@ -1,0 +1,51 @@
+<%- include('header') %>
+
+<div class="col-12 mt-3">
+    <div class="rounded h-100 p-4">
+        <h6 class="mb-4">Responsive Table</h6>
+        <div class="table-responsive">
+            <div class="images text-center">
+                <img src="<%= locals.admin.adminimage %>" class="mb-5" style="height: 150px; width: 150px; border-radius: 50%; border: 5px solid #19AF29;" alt="profile" title="profile">
+            </div>
+            <div class="table-responsive table--no-card m-b-30">
+                <table class="table table-borderless table-striped table-earning text-center">
+                    <tr>
+                        <td>
+                            Name </td>
+                        <td>
+                            <%= locals.admin.name %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td
+                            >
+                            Email </td>
+                        <td>
+                            <%= locals.mechanic.email %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Mobile number </td>
+                        <td>
+                            <%= locals.mechanic.mno %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td
+                            >
+                            Gender </td>
+                        <td>
+                            <%= locals.admin.gender %>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <center>
+                <a href="/admin/adminupdate/<%= locals.admin.id %>" class="btn" style="background-color: #19AF29; color: white;">Edit</a>
+            </center>
+        </div>
+    </div>
+</div>
+
+<%- include('footer') %>

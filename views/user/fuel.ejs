@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet" href="/fuel.css">;
+
+    <script src="/js/main.js"></script>
+    <link rel="stylesheet" href="/css/main.css">
+   
+
+      <!-- Vendor CSS Files -->
+  <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="/vendor/aos/aos.css" rel="stylesheet">
+  <link href="/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="/vendor/fontawesome-free-6.5.1-web/css/all.min.css" rel="stylesheet">
+
+  <!-- noty cdn -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"
+  integrity="sha512-lOrm9FgT1LKOJRUXF3tp6QaMorJftUjowOWiDcG5GFZ/q7ukof19V0HKx/GWzXCdt9zYju3/KhBNdCLzK8b90Q=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css"
+  integrity="sha512-0p3K0H3S6Q4bEWZ/WmC94Tgit2ular2/n0ESdfEX8l172YyQj8re1Wu9s/HT9T/T2osUw5Gx/6pAZNk3UKbESw=="
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+</head>
+<body>
+
+    <header id="header" class="header fixed-top d-flex align-items-center">
+        <div class="container d-flex align-items-center justify-content-between">
+    
+          <a href="/user/fuel" class="logo d-flex align-items-center me-auto me-lg-0">
+            <!-- Uncomment the line below if you also wish to use an image logo -->
+            <!-- <img src="assets/img/logo.png" alt=""> -->
+            <img src="/img/fuemech.png" alt="logo" title="logo">
+          </a>
+    
+          <nav id="navbar" class="navbar">
+            <ul>
+              <li><a href="/user/home">Home</a></li>
+              <li><a href="/user/fuel">Fuel</a></li>
+              <li><a href="/user/mechanic">Mechanic</a></li>
+              <li><a href="/user/contact-us">Contact-us</a></li>
+              <li><a href="/user/myorders">Profile</a></li>
+            </ul>
+          </nav><!-- .navbar -->
+    
+          <div>
+            <% if(locals.user) { %>
+              <a class="btn-book-a-table" href="/user/logout" style="background-color: #19AF29; padding: 10px 30px; font-size: 17px;">Logout</a>
+            <% } else { %>
+              <a class="btn-book-a-table" href="/user" style="background-color: #19AF29; padding: 10px 30px; font-size: 17px;">Login</a> 
+            <% } %>
+        
+            <% if(locals.user) { %>
+              <a class="btn text-white" href="/user/changepassword" style="background-color: #19AF29; padding: 10px 30px; font-size: 17px; border-radius: 50px;">Change password</a> 
+            <% } %>
+          </div>
+          <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+          <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+    
+        </div>
+      </header><!-- End Header -->
+    
+    
+
+      <!-- ---------------------------------------------- -->
+
+    <div class="search-bar container">
+      <form action="" class="d-flex">
+        <input type="search" class="form-control me-2" name="search" placeholder="Search for landmark" aria-label="Search" />
+        <button type="submit" class="srch-btn">Search</button>
+      </form>
+    </div>
+
+
+
+<div class="fuel">
+    <% data.map((v,i) => { %>
+      <div class="main-fuel container my-5">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+          <div class="row">
+            <div class="col-lg-6 inner-img col-md-6 col-sm-6">
+                <img src="<%= v.fuelimage %>" class="img-fluid"/>
+            </div>
+            <div class="col-lg-6 p-5 col-md-6 col-sm-6 inner-text">
+                <h1><%= v.fname %></h1>
+                <div class="icon d-flex mb-3">
+                      <i class="fa-solid fa-star mx-1"></i>
+                      <i class="fa-solid fa-star mx-1"></i>
+                     <i class="fa-solid fa-star mx-1"></i>
+                     <i class="fa-solid fa-star mx-1"></i>
+                     <i class="fa-solid fa-star mx-1"></i>
+                </div>
+                <p class='fw-bold'>Address :- <%= v.address %></p>
+                <p class='fw-bold'>Landmark :- <%= v.landmark %></p>
+                <p class='fw-bold'>Petrol :- ₹<%= v.pprice %>.00</p>
+                <p class='fw-bold'>Diesel :- ₹<%= v.dprice %>.00</p>
+                <a href="/user/fuel_order/<%= v.id %>"> <button type='submit' class='fuel-btn'>Order Now</button></a>
+            </div>
+          </div>
+        </div>
+      </div>  
+    <% }) %>
+    <div style="text-align: center; margin-bottom: 30px;">
+      <% if(currentpage>0) { %>
+          <a href="?page=<%= parseInt(currentpage)-1 %>&search=<%= search %>" name="page" class="btn text-white" style="background-color: #19AF29;">prev</a>    
+      <%} %>
+      <a href="?page=<%= currentpage %>&search=<%= search %>" name="page" class="btn text-white" style="background-color: #19AF29;"><%= parseInt(currentpage)+1 %></a>
+      <% var next = parseInt(currentpage)+1 
+      if(next<page) { %>
+          <a href="?page=<%= next %>&search=<%= search %>" name="page" class="btn text-white" style="background-color: #19AF29;">next</a>    
+      <% } %>
+</div>
+</div>
+
+      <!-- ---------------------------------------------- -->
+
+      <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+
+    <div class="container">
+      <div class="row gy-3">
+
+        <div class="col-lg-3 col-md-6">
+          <a href="#">
+            <img src="/img/fuemech.png" alt="fuemech" width="220px" height="60px">
+          </a>
+          <div class="mt-3">
+            <h6><a href="#" class="mail" style="color: #BCBCBE;">fuemech@gmail.com</a></h6>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 d-flex">
+          <i class="bi bi-geo-alt icon"></i>
+          <div>
+            <h4>Address</h4>
+            <p>
+              A108 crystal park <br>
+              sector-13,gurugram,hariyana 535022 - IND<br>
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 footer-links d-flex">
+          <i class="fa-solid fa-briefcase icon"></i>
+          <div>
+              <h4>Services</h4>
+              <h6>Fuel delivery</h6>
+              <h6>Mechanic provide</h6>
+              <h6>24/7 available</h6>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 footer-links">
+          <h4>Follow Us</h4>
+          <div class="social-links d-flex">
+            <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>FueMech</span></strong>. All Rights Reserved
+      </div>
+    </div>
+
+  </footer><!-- End Footer -->
+  <!-- End Footer -->
+
+  <script>
+    <% if(locals.flash.success.length > 0 && locals.flash.success){ %> 
+  
+    new Noty({
+      type: 'success',
+      layout: 'topRight',
+      text: '<%= locals.flash.success %>',
+      timeout: 2000,
+      theme: 'relax'
+    }).show();
+
+    <% } %>
+
+    <% if(locals.flash.error.length > 0 && locals.flash.error){ %> 
+
+    new Noty({
+      type: 'error',
+      layout: 'topRight',
+      text: '<%= locals.flash.error %>',
+      timeout: 2000,
+      theme: 'relax'
+    }).show();
+
+    <% } %>
+</script>
+
+</body>
+</html>
